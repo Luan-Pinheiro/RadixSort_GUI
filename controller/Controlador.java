@@ -41,7 +41,7 @@ public class Controlador implements Initializable{
   @FXML
   void OnClickBtnInserir(ActionEvent event) {
     String strAux = getTxtTamVet();
-    if((!getTxtTamVet().isEmpty()) && strAux.matches("[+-]?\\d*(\\.\\d+)?") && Long.parseLong(strAux) <= 1000000){
+    if((!getTxtTamVet().isEmpty()) && strAux.matches("[+-]?\\d*(\\.\\d+)?") && Long.parseLong(strAux) <= 100000){
       vetor = new int[Integer.parseInt(strAux)];
       wasCreated = true;
       System.out.println("VETOR INSERIDO!\nTamanho do vetor: " + vetor.length + "\n");
@@ -78,7 +78,7 @@ public class Controlador implements Initializable{
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      System.out.println("Tempo total: " + total + "ms");
+      System.out.println("\nTempo total: " + total + "ms");
     }
   }
   
@@ -106,7 +106,7 @@ public class Controlador implements Initializable{
         }
       }
       vetorCopia = vetor;
-      System.out.print("]");
+      System.out.print("]\n");
     }
   }
   @FXML
@@ -124,7 +124,7 @@ public class Controlador implements Initializable{
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      System.out.println("Tempo puro: " + total);
+      System.out.println("\nTempo puro: " + total + "ms");
     }
   }
 
@@ -145,7 +145,7 @@ public class Controlador implements Initializable{
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     txtTamVet.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (newValue.length() > 7) {
+      if (newValue.length() > 6) {
         txtTamVet.setText(oldValue);
       }
     });
