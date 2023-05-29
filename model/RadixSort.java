@@ -56,8 +56,11 @@ public class RadixSort {
     }
     
     public void print(int[] vetor){
-        System.out.println("Array original: " + Arrays.toString(vetor));
         radixSort(vetor);
-        System.out.println("Array ordenado: " + Arrays.toString(vetor));
+        System.out.println("\nVetor["+ cT.getTxtTamVet() + "] ordenado: " + Arrays.toString(vetor));
+    }
+
+    public void printOriginal(int[] vetor){
+        System.out.println("Vetor["+ cT.getTxtTamVet() + "] original: " + Arrays.toString(vetor));
     }
 }

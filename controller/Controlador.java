@@ -41,7 +41,7 @@ public class Controlador implements Initializable{
     if((!getTxtTamVet().isEmpty()) && strAux.matches("[+-]?\\d*(\\.\\d+)?") && Long.parseLong(strAux) <= 100000){
       vetor = new int[Integer.parseInt(strAux)];
       wasCreated = true;
-      System.out.println(vetor.length);
+      System.out.println("VETOR INSERIDO!\nTamanho do vetor: " + vetor.length + "\n");
     }else if(strAux.matches("[+-]?\\d*(\\.\\d+)?") && (!getTxtTamVet().isEmpty())){
       alerta.setTitle("Erro na criacao");
       alerta.setHeaderText("Vetor grande demais!");
@@ -75,7 +75,8 @@ public class Controlador implements Initializable{
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      System.out.println("Tempo: " + total);
+      //System.out.println("Tempo bruto: ");
+      System.out.println("Tempo total: " + total + "ms");
     }
   }
 
@@ -94,9 +95,16 @@ public class Controlador implements Initializable{
       int supLim = 10000;
       Random randomNUmber = new Random();
 
+      System.out.print("Vetor[" + vetor.length + "] original: [");
       for(int i = 0 ; i < vetor.length; i++){
         vetor[i] = randomNUmber.nextInt(supLim) + infLim;
+        if(i==vetor.length - 1){
+          System.out.print(vetor[i] + "");
+        } else {
+          System.out.print(vetor[i] + ", ");
+        }
       }
+      System.out.print("]");
     }
   }
   
