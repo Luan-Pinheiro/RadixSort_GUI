@@ -75,7 +75,6 @@ public class Controlador implements Initializable{
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      //System.out.println("Tempo bruto: ");
       System.out.println("Tempo total: " + total + "ms");
     }
   }
