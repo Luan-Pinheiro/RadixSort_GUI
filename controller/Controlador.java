@@ -33,7 +33,15 @@ public class Controlador implements Initializable{
   private Label lblTempo;
   @FXML
   private ImageView imgExplicacao;
+  @FXML
+  private Button btnTempoBruto;
+  
   RadixSort rS;
+
+  @FXML
+  void OnClickTBruto(ActionEvent event) {
+
+  }
   
   @FXML
   void OnClickBtnInserir(ActionEvent event) {
