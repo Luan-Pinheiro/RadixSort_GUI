@@ -1,0 +1,60 @@
+#btnOrdenar{
+  -fx-background-color: rgba(174, 181, 101, 0.201);
+  -fx-background-radius: 15px;
+  -fx-border-color: black;
+  -fx-border-radius: 15px;
+  -fx-border-width: 3px;
+}
+
+
+#btnOrdenar:hover{
+  -fx-background-color: rgba(124, 130, 47, 0.223);
+  -fx-border-color: rgba(99, 100, 81, 0.69);
+}
+
+#btnRandomico{
+  -fx-background-color: rgba(174, 181, 101, 0.201);
+  -fx-background-radius: 15px;
+  -fx-border-color: black;
+  -fx-border-radius: 15px;
+  -fx-border-width: 3px;
+}
+
+
+#btnRandomico:hover{
+  -fx-background-color: rgba(124, 130, 47, 0.223);
+  -fx-border-color: rgba(99, 100, 81, 0.69);
+}
+#btnInserir{
+  -fx-background-color: rgba(174, 181, 101, 0);
+  -fx-background-radius: 1px;
+}
+#btnInserir:hover{
+  -fx-background-color: rgba(116, 130, 24, 0.554);
+}
+#btnDuvida{
+  -fx-background-color: rgba(174, 181, 101, 0);
+  -fx-background-radius: 15px;
+  -fx-border-color: black;
+  -fx-border-radius: 15px;
+  -fx-border-width: 2px;
+}
+#btnDuvida:hover{
+  -fx-background-color: rgba(125, 130, 47, 0);
+  -fx-border-color: rgba(143, 144, 130, 0.561);
+}
+#txtTamVet{
+  -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-background-radius: 5px;
+  -fx-font-size: 12px;
+  -fx-font-style: italic;
+  -fx-font-weight: bold;
+}
+
+#lblTempo{
+  -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-background-radius: 5px;
+  -fx-font-size: 15px;
+  -fx-font-style: italic;
+  -fx-font-weight: bold;
+}
