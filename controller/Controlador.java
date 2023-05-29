@@ -33,6 +33,8 @@ public class Controlador implements Initializable{
   private Label lblTempo;
   @FXML
   private ImageView imgExplicacao;
+  @FXML
+  private Button btnTempoBruto;
   RadixSort rS;
   
   @FXML
@@ -59,7 +61,7 @@ public class Controlador implements Initializable{
       alerta.showAndWait();
     }
   }
-
+  
   @FXML
   void OnClickOrdenar(ActionEvent event) {
     if(!wasClicked){
@@ -71,14 +73,14 @@ public class Controlador implements Initializable{
     }else{
       long inicio = System.currentTimeMillis();
       rS = new RadixSort(this);
-      rS.print(vetor);
+      rS.printOrdenado(vetor);
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      System.out.println("Tempo: " + total);
+      System.out.println("Tempo total: " + total);
     }
   }
-
+  
   @FXML
   void OnClickRandomico(ActionEvent event) {
     if(!wasCreated){
@@ -93,15 +95,40 @@ public class Controlador implements Initializable{
       int infLim = 1;
       int supLim = 10000;
       Random randomNUmber = new Random();
-
+      System.out.print("Vetor[" + vetor.length + "] original: [");
       for(int i = 0 ; i < vetor.length; i++){
         vetor[i] = randomNUmber.nextInt(supLim) + infLim;
-      }
-
+        if(i==vetor.length - 1){
+          System.out.print(vetor[i] + "");
+        } else {
+          System.out.print(vetor[i] + ", ");
         }
-      
+      }
       System.out.print("]");
-    
+    }
+  }
+  @FXML
+  void OnClickTBruto(ActionEvent event) {
+    if(!wasClicked){
+      alerta.setTitle("Erro na ordenacao");
+      alerta.setHeaderText("Opcao vazia ou inexistente!");
+      alerta.setContentText("Preencha o vetor antes de tentar ordena-lo!");
+      alerta.showAndWait();
+      wasClicked = false;
+    }else{
+      long inicio = System.currentTimeMillis();
+      rS = new RadixSort(this);
+      rS.radixSort(vetor);
+      long fim = System.currentTimeMillis();
+      long total = fim -inicio;
+      lblTempo.setText((String.valueOf(total)+"ms"));
+      System.out.println("Tempo puro: " + total);
+    }
+  }
+
+   //Getters e Setters
+   public String getTxtTamVet() {
+    return txtTamVet.getText();
   }
   public boolean getWasClicked() {
     return wasClicked;
@@ -112,7 +139,7 @@ public class Controlador implements Initializable{
   public void setTxtTamVet(TextField txtTamVet) {
     this.txtTamVet = txtTamVet;
   }
-
+  
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     txtTamVet.textProperty().addListener((observable, oldValue, newValue) -> {

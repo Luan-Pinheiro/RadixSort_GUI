@@ -12,7 +12,8 @@ import controller.Controlador;
 public class RadixSort {
   Controlador cT;
   private static int tamanho;
-  
+  public RadixSort(){
+  }
   public RadixSort(Controlador cT){
     this.cT = cT;
     tamanho = Integer.parseInt(this.cT.getTxtTamVet());
