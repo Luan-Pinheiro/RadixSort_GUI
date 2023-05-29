@@ -12,8 +12,7 @@ import controller.Controlador;
 public class RadixSort {
   Controlador cT;
   private static int tamanho;
-  public RadixSort(){
-  }
+  
   public RadixSort(Controlador cT){
     this.cT = cT;
     tamanho = Integer.parseInt(this.cT.getTxtTamVet());
@@ -55,9 +54,12 @@ public class RadixSort {
         System.arraycopy(output, 0, array, 0, n);
     }
     
-    public void print(int[] vetor){
-        System.out.println("Array original: " + Arrays.toString(vetor));
+    public void printOrdenado(int[] vetor){
         radixSort(vetor);
-        System.out.println("Array ordenado: " + Arrays.toString(vetor));
+        System.out.println("\nVetor["+ cT.getTxtTamVet() + "] ordenado: " + Arrays.toString(vetor));
+    }
+
+    public void printOriginal(int[] vetor){
+        System.out.println("Vetor["+ cT.getTxtTamVet() + "] original: " + Arrays.toString(vetor));
     }
 }

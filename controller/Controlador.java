@@ -33,15 +33,7 @@ public class Controlador implements Initializable{
   private Label lblTempo;
   @FXML
   private ImageView imgExplicacao;
-  @FXML
-  private Button btnTempoBruto;
-  
   RadixSort rS;
-
-  @FXML
-  void OnClickTBruto(ActionEvent event) {
-
-  }
   
   @FXML
   void OnClickBtnInserir(ActionEvent event) {
@@ -105,13 +97,11 @@ public class Controlador implements Initializable{
       for(int i = 0 ; i < vetor.length; i++){
         vetor[i] = randomNUmber.nextInt(supLim) + infLim;
       }
-    }
-  }
-  
-  
-  //Getters e Setters
-  public String getTxtTamVet() {
-    return txtTamVet.getText();
+
+        }
+      
+      System.out.print("]");
+    
   }
   public boolean getWasClicked() {
     return wasClicked;
