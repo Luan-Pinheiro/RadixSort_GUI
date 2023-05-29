@@ -19,7 +19,6 @@ public class RadixSort {
     tamanho = Integer.parseInt(this.cT.getTxtTamVet());
   }
     public static void radixSort(int[] array) {
-      
         // Encontra o valor máximo no array para determinar o número de dígitos
         int max = Arrays.stream(array).max().getAsInt();
         
@@ -58,9 +57,5 @@ public class RadixSort {
     public void printOrdenado(int[] vetor){
         radixSort(vetor);
         System.out.println("\nVetor["+ cT.getTxtTamVet() + "] ordenado: " + Arrays.toString(vetor));
-    }
-
-    public void printOriginal(int[] vetor){
-        System.out.println("Vetor["+ cT.getTxtTamVet() + "] original: " + Arrays.toString(vetor));
     }
 }

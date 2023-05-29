@@ -19,6 +19,7 @@ public class Controlador implements Initializable{
   private boolean wasClicked = false;
   private boolean wasCreated = false;
   int[] vetor;
+  int[] vetorCopia;
   @FXML
   private Button btnOrdenar;
   @FXML
@@ -40,10 +41,10 @@ public class Controlador implements Initializable{
   @FXML
   void OnClickBtnInserir(ActionEvent event) {
     String strAux = getTxtTamVet();
-    if((!getTxtTamVet().isEmpty()) && strAux.matches("[+-]?\\d*(\\.\\d+)?") && Long.parseLong(strAux) <= 100000){
+    if((!getTxtTamVet().isEmpty()) && strAux.matches("[+-]?\\d*(\\.\\d+)?") && Long.parseLong(strAux) <= 1000000){
       vetor = new int[Integer.parseInt(strAux)];
       wasCreated = true;
-      System.out.println(vetor.length);
+      System.out.println("VETOR INSERIDO!\nTamanho do vetor: " + vetor.length + "\n");
     }else if(strAux.matches("[+-]?\\d*(\\.\\d+)?") && (!getTxtTamVet().isEmpty())){
       alerta.setTitle("Erro na criacao");
       alerta.setHeaderText("Vetor grande demais!");
@@ -71,13 +72,13 @@ public class Controlador implements Initializable{
       alerta.showAndWait();
       wasClicked = false;
     }else{
-      long inicio = System.currentTimeMillis();
       rS = new RadixSort(this);
+      long inicio = System.currentTimeMillis();
       rS.printOrdenado(vetor);
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
-      System.out.println("Tempo total: " + total);
+      System.out.println("Tempo total: " + total + "ms");
     }
   }
   
@@ -104,6 +105,7 @@ public class Controlador implements Initializable{
           System.out.print(vetor[i] + ", ");
         }
       }
+      vetorCopia = vetor;
       System.out.print("]");
     }
   }
@@ -116,9 +118,9 @@ public class Controlador implements Initializable{
       alerta.showAndWait();
       wasClicked = false;
     }else{
-      long inicio = System.currentTimeMillis();
       rS = new RadixSort(this);
-      rS.radixSort(vetor);
+      long inicio = System.currentTimeMillis();
+      rS.radixSort(vetorCopia);
       long fim = System.currentTimeMillis();
       long total = fim -inicio;
       lblTempo.setText((String.valueOf(total)+"ms"));
@@ -143,7 +145,7 @@ public class Controlador implements Initializable{
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     txtTamVet.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (newValue.length() > 6) {
+      if (newValue.length() > 7) {
         txtTamVet.setText(oldValue);
       }
     });

@@ -28,6 +28,10 @@
   -fx-border-width: 1px;
 }
 
+#btnTempoBruto:hover{
+  -fx-background-color: rgba(124, 130, 47, 0.223);
+  -fx-border-color: rgba(99, 100, 81, 0.69);
+}
 
 #btnRandomico:hover{
   -fx-background-color: rgba(124, 130, 47, 0.223);
